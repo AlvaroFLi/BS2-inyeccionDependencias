@@ -1,29 +1,27 @@
 package com.inyecciondependencias.inyecciondependencias;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
-@Service
 public class Controlador1 {
 
-    Persona p = new Persona();
+    @Autowired
+    Servicio servicio;
 
     @GetMapping("/controlador1/addPersona/{nombre}/{poblacion}/{edad}")
-    public  Persona addPersona(@PathVariable String nombre, @PathVariable("poblacion") String poblacion, @PathVariable("edad") int edad){
+    public  Servicio addPersona(@PathVariable String nombre, @PathVariable("poblacion") String poblacion, @PathVariable("edad") int edad){
 
-            p.setNombre(nombre);
-            p.setPoblacion(poblacion);
-            p.setEdad(edad);
-            return p;
+            servicio.crearPersona(nombre, poblacion, edad);
+            return servicio;
     }
 
-    public int getEdad(){
-        return p.getEdad();
-    }
 
-    public void setEdad(int edad){
-        p.setEdad(edad);
+    @PostMapping("/controlador1/addCiudad")
+    public Ciudad addCiudad(@RequestBody Ciudad ciudad){
+        servicio.addCiudad(ciudad);
+        return ciudad;
     }
 
 
