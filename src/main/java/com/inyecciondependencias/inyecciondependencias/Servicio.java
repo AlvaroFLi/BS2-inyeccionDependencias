@@ -7,6 +7,7 @@ import java.util.List;
 
 @Service
 public class Servicio {
+
     Persona person = new Persona();
 
     List<Ciudad> listaCiudad = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Servicio {
     public List<Ciudad> getCiudad(){
         return listaCiudad;
     }
+
 
 
 

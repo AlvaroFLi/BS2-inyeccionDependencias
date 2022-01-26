@@ -1,8 +1,9 @@
-package com.inyecciondependencias.inyecciondependencias;
+package com.inyecciondependencias.inyecciondependencias.bean;
 
 import lombok.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
@@ -11,16 +12,14 @@ import org.springframework.stereotype.Service;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Component
+@Service
 public class Persona {
 
     private String nombre;
-    private String poblacion;
-    private int edad;
 
-    @Bean("bean1")
-    public void bean1(){
-        setNombre("bean1");
-    }
+    @Qualifier("bean1")
+    public void bean1(){  setNombre("bean1"); }
 
     @Bean("bean2")
     public void bean2(){

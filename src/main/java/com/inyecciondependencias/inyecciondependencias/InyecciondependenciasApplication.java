@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.*;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+		"com.inyecciondependencias.inyecciondependencias.bean"
+})
 public class InyecciondependenciasApplication {
 
 	public static void main(String[] args) {
